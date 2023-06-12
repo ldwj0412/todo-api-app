@@ -40,6 +40,17 @@ JWT_SECRET='{your_jwt_secret}'
 The base URL for all the endpoints is http://localhost:5000. The API includes the following endpoints:
 
 ## User Authentication
+
+### POST /register
+
+Body Parameters:
+
+- username (string): The username of the user
+- password (string): The password of the user
+
+Response:
+- A success message indicating that the user has been successfully registered
+
 ### POST /login
 
 Body Parameters:
@@ -57,11 +68,14 @@ Headers:
 - auth-token: The JWT token received from the login endpoint
 
 Query Parameters:
-
+#### sorting
 - sortBy (string): The field to sort by (e.g., 'name')
-- sortOrder (string): The order to sort in ('asc' for ascending, 'desc' for descending)
+- example: http://localhost:5000/todos?sortBy=name,+dueDate (i.e. sort by name, and dueDate in descending order)
+
+#### Filtering
 - filter (string): The field to filter by (e.g., 'status')
- 
+- example:  http://localhost:5000/todos?name=exercise 
+
 Response:
 - An array of todo items for the authenticated user, sorted and filtered as per the query parameters
 
@@ -79,7 +93,9 @@ Body Parameters:
 - dueDate (string): The due date for the task (in 'YYYY-MM-DD' format)
 - priority (string): The priority of the task
 - tags (array): The tags associated with the task
-- Response: The created todo item
+
+ Response: 
+ - The created todo item
 
 ### PUT /todos/:id
 
