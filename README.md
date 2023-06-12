@@ -34,3 +34,70 @@ JWT_SECRET='{your_jwt_secret}'
  npm start
  ```
  The server will start running on http://localhost:5000 (or whatever your PORT environment variable is set to).
+
+
+# API Documentation
+The base URL for all the endpoints is http://localhost:5000. The API includes the following endpoints:
+
+## User Authentication
+### POST /login
+
+Body Parameters:
+
+- username (string): The username of the user
+- password (string): The password of the user
+
+Response: 
+- A JWT token for authenticating further requests
+
+## Todo Management
+### GET /api/todos
+
+Headers:
+- auth-token: The JWT token received from the login endpoint
+
+Query Parameters:
+
+- sortBy (string): The field to sort by (e.g., 'name')
+- sortOrder (string): The order to sort in ('asc' for ascending, 'desc' for descending)
+- filter (string): The field to filter by (e.g., 'status')
+ 
+Response:
+- An array of todo items for the authenticated user, sorted and filtered as per the query parameters
+
+POST /api/todos
+
+Headers:
+
+auth-token: The JWT token received from the login endpoint
+Body Parameters:
+
+name (string): The name of the todo task
+description (string): The description of the todo task
+status (string): The status of the todo task
+dueDate (string): The due date for the task (in 'YYYY-MM-DD' format)
+priority (string): The priority of the task
+tags (array): The tags associated with the task
+Response: The created todo item
+
+PUT /api/todos/:id
+
+Headers:
+
+auth-token: The JWT token received from the login endpoint
+Body Parameters:
+
+name (string): The name of the todo task
+description (string): The description of the todo task
+status (string): The status of the todo task
+dueDate (string): The due date for the task (in 'YYYY-MM-DD' format)
+priority (string): The priority of the task
+tags (array): The tags associated with the task
+Response: The updated todo item
+
+DELETE /api/todos/:id
+
+Headers:
+
+auth-token: The JWT token received from the login endpoint
+Response: A confirmation message indicating the successful deletion of the todo item
