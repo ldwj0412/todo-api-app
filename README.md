@@ -51,7 +51,7 @@ Response:
 - A JWT token for authenticating further requests
 
 ## Todo Management
-### GET /api/todos
+### GET /todos
 
 Headers:
 - auth-token: The JWT token received from the login endpoint
@@ -65,39 +65,45 @@ Query Parameters:
 Response:
 - An array of todo items for the authenticated user, sorted and filtered as per the query parameters
 
-POST /api/todos
+### POST /todos
 
 Headers:
 
-auth-token: The JWT token received from the login endpoint
+- auth-token: The JWT token received from the login endpoint
+
 Body Parameters:
 
-name (string): The name of the todo task
-description (string): The description of the todo task
-status (string): The status of the todo task
-dueDate (string): The due date for the task (in 'YYYY-MM-DD' format)
-priority (string): The priority of the task
-tags (array): The tags associated with the task
-Response: The created todo item
+- name (string): The name of the todo task
+- description (string): The description of the todo task
+- status (string): The status of the todo task
+- dueDate (string): The due date for the task (in 'YYYY-MM-DD' format)
+- priority (string): The priority of the task
+- tags (array): The tags associated with the task
+- Response: The created todo item
 
-PUT /api/todos/:id
+### PUT /todos/:id
 
 Headers:
 
-auth-token: The JWT token received from the login endpoint
+- auth-token: The JWT token received from the login endpoint
+
 Body Parameters:
 
-name (string): The name of the todo task
-description (string): The description of the todo task
-status (string): The status of the todo task
-dueDate (string): The due date for the task (in 'YYYY-MM-DD' format)
-priority (string): The priority of the task
-tags (array): The tags associated with the task
-Response: The updated todo item
+- name (string): The name of the todo task
+- description (string): The description of the todo task
+- status (string): The status of the todo task
+- dueDate (string): The due date for the task (in 'YYYY-MM-DD' format)
+- priority (string): The priority of the task
+- tags (array): The tags associated with the task
 
-DELETE /api/todos/:id
+ Response: 
+ - The updated todo item
+
+### DELETE /todos/:id
 
 Headers:
 
-auth-token: The JWT token received from the login endpoint
-Response: A confirmation message indicating the successful deletion of the todo item
+- auth-token: The JWT token received from the login endpoint
+
+Response: 
+- A confirmation message indicating the successful deletion of the todo item
