@@ -38,6 +38,7 @@ JWT_SECRET='{your_jwt_secret}'
 
 # API Documentation
 A Postman collection is uploaded in the repo: todo-api .postman_collection.json
+
 The base URL for all the endpoints is http://localhost:5000. The API includes the following endpoints:
 
 ## User Authentication
